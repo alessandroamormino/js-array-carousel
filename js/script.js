@@ -20,7 +20,46 @@ Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di 
 /*
 PSEUDOCODICE:
 
-- creare un array contenente le src delle 5 immagini fornite
-- leggere elementi del DOM che formano il carousel
+x leggere elementi del DOM che formano il carousel
+x creare un array contenente le src delle 5 immagini fornite
+x creo una variabile indice a 0
+x inserire l'ìmmagine di partenza nel carousel
+x creo n div quante sono le immagini (5) nell'array
+x creo n img tag quante sono le immagini (5) nell'array
+- inserire le immagini nella thumbnail sulla base delle src dell'array
+- AL CLICK della freccia in alto 
+    ° diminuisco l'indice e riassegno l'immagine del carousel sulla base della posizione indice;
+
 
 */
+
+// CODE
+
+// - leggere elementi del DOM che formano il carousel
+const carouselImgEl = document.getElementById('carousel-img');
+const arrowTopEl = document.getElementById('arrow-top');
+const arrowBottomEl = document.getElementById('arrow-bottom');
+const thumbContainerEl = document.getElementById('thumbnails-container');
+
+// - creare un array contenente le src delle 5 immagini fornite
+const imgSrcs = ['img/01.webp', 'img/02.webp', 'img/03.webp', 'img/04.webp', 'img/05.webp'];
+
+// - creo una variabile indice
+let index = 0;
+
+// - inserire l'ìmmagine di partenza nel carousel
+carouselImgEl.src = imgSrcs[index];
+
+for(let i=0; i<imgSrcs.length; i++){
+    // - creo n div quante sono le immagini (5) nell'array
+    const newThumbnailEl = document.createElement('div');
+    thumbContainerEl.append(newThumbnailEl);
+    newThumbnailEl.classList.add('thumbnail');
+    
+    // - creo n img tag quante sono le immagini (5) nell'array
+    const newImgThumbEl = document.createElement('img');
+    newThumbnailEl.append(newImgThumbEl);
+    newImgThumbEl.src = imgSrcs[index++];
+}
+
+

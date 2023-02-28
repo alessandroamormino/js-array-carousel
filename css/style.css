@@ -33,7 +33,6 @@
 
     width: 20%;
     height: 100%;
-    background-color: #ff000020;
 }
 
 .carousel{
@@ -48,7 +47,7 @@
     object-position: 80% 30%;
 }
 
-.carousel-right .arrow-top{
+.carousel-right #arrow-top{
     position: absolute;
     top: 1em;
     left: 50%;
@@ -58,31 +57,33 @@
     background-color: #fff;
 }
 
-.carousel-right .arrow-bottom{
+.carousel-right #arrow-bottom{
     position: absolute;
     bottom: 1em;
     left: 50%;
     transform: translateX(-50%);
-    
+
     /* test */
     background-color: #fff;
 }
 
-.thumbnails-container {
+#thumbnails-container {
     width: 100%;
     height: 100%;
 }
 
-.carousel-right .thumbnails-container .thumbnail{
+.carousel-right #thumbnails-container .thumbnail{
     width: 100%;
     height: calc(100% / 5);
 }
 
-.carousel-right .thumbnails-container .thumbnail img{
+.carousel-right #thumbnails-container .thumbnail img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 10% 30%;
 }
 
-
+.active {
+    border: 2px solid black;
+}
