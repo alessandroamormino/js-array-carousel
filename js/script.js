@@ -61,7 +61,7 @@ const imgSrcs = ['img/01.webp', 'img/02.webp', 'img/03.webp', 'img/04.webp', 'im
 let index = 0;
 
 // - inserire l'ìmmagine di partenza nel carousel
-carouselImgEl.src = imgSrcs[index];
+carouselImgEl.src = imgSrcs[2];
 
 for(let i=0; i<imgSrcs.length; i++){
     // - creo n div quante sono le immagini (5) nell'array
@@ -79,7 +79,7 @@ for(let i=0; i<imgSrcs.length; i++){
 
 // Azzero la variabile indice
 
-index = 0;
+index = 2;
 
 // - AL CLICK della freccia in basso 
 arrowBottomEl.addEventListener('click', function(){

@@ -47,24 +47,23 @@
     object-position: 80% 30%;
 }
 
+.carousel-right  .arrow {
+    color: white;
+    font-size: 2em;
+}
+
 .carousel-right #arrow-top{
     position: absolute;
-    top: 1em;
+    top: .5em;
     left: 50%;
     transform: translateX(-50%);
-
-    /* test */
-    background-color: #fff;
 }
 
 .carousel-right #arrow-bottom{
     position: absolute;
-    bottom: 1em;
+    bottom: .5em;
     left: 50%;
     transform: translateX(-50%);
-
-    /* test */
-    background-color: #fff;
 }
 
 #thumbnails-container {
