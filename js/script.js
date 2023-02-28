@@ -34,7 +34,7 @@ x AL CLICK della freccia in basso
     : ALTRIMNETI
         ° F1: aumento lìindice;
         ° F2: riassegno l'immagine del carousel sulla base della posizione indice;
-- AL CLICK della freccia in alto 
+x AL CLICK della freccia in alto 
     ? SE l'indice raggiunge l'ultima immagine disponibile nell'array
         ° V1: riparto da 0 ;
         ° V2: riassegno prima immagine;
@@ -76,43 +76,65 @@ for(let i=0; i<imgSrcs.length; i++){
 
     // - inserire le immagini nella thumbnail sulla base delle src dell'array
     newImgThumbEl.src = imgSrcs[index++];
+
 }
 
 // Azzero la variabile indice
 // parto da quella centrale per styling
 index = 2;
 
+// Assegno variabile active all'immagine di partenza
+const imgSelectedEl = document.querySelectorAll('.thumbnail img');
+imgSelectedEl[index].classList.add('active');
+
 // - AL CLICK della freccia in basso 
 arrowBottomEl.addEventListener('click', function(){
 
     // ? SE l'indice raggiunge l'ultima immagine disponibile nell'array
-    if(index>=imgSrcs.length-1){
-        // °V1: riparto da 0 
-        index = 0;
-        // ° V2: riassegno prima immagine;
+
+    // aumento l'indice
+    index++;
+
+    if(index>imgSrcs.length-1){
+        // azzero l'indice se ho raggiunto ultima posizione
+        index=0;
         carouselImgEl.src = imgSrcs[index];
+        imgSelectedEl[index].classList.add('active');
+        imgSelectedEl[imgSrcs.length-1].classList.remove('active');
     } else {
-        // °F1: aumento l'indice
-        index++;
-        // ° riassegno l'immagine del carousel sulla base della posizione indice;
-        carouselImgEl.src = imgSrcs.at(index);
+        // vado avanti
+        carouselImgEl.src = imgSrcs[index];
+        imgSelectedEl[index].classList.add('active');
+        imgSelectedEl[index-1].classList.remove('active');
     }
+
+
 });
+
+
 
 // - AL CLICK della freccia in alto 
 arrowTopEl.addEventListener('click', function(){
 
-    // ? SE l'indice raggiunge l'ultima immagine disponibile nell'array
+    // ? SE l'indice raggiunge la prima immagine disponibile nell'array
 
-    if(index<=(imgSrcs.length-1)*-1){
-        // °V1: riparto da 0 
-        index = 0;
-        // ° V2: riassegno prima immagine;
+    // diminuisco l'indice
+    index--;
+
+
+    if(index<0){
+        // porto l'indice all'ultima posizione e vado indietro
+        index=imgSrcs.length-1;
         carouselImgEl.src = imgSrcs[index];
+        imgSelectedEl[index].classList.add('active');
+        imgSelectedEl[0].classList.remove('active');
     } else {
-        // °F1: diminuisco l'indice
-        index--;
-        // ° riassegno l'immagine del carousel sulla base della posizione indice;
-        carouselImgEl.src = imgSrcs.at(index);
+        // vado indietro
+        carouselImgEl.src = imgSrcs[index];
+        imgSelectedEl[index].classList.add('active');
+        imgSelectedEl[index+1].classList.remove('active');
     }
+
+
+
 });
