@@ -90,11 +90,9 @@ arrowBottomEl.addEventListener('click', function(){
         index = 0;
         // ° V2: riassegno prima immagine;
         carouselImgEl.src = imgSrcs[index];
-        console.log(index);
     } else {
         // °F1: aumento l'indice
         index++;
-        console.log(index);
         // ° riassegno l'immagine del carousel sulla base della posizione indice;
         carouselImgEl.src = imgSrcs.at(index);
     }
@@ -110,11 +108,9 @@ arrowTopEl.addEventListener('click', function(){
         index = 0;
         // ° V2: riassegno prima immagine;
         carouselImgEl.src = imgSrcs[index];
-        console.log(index);
     } else {
         // °F1: diminuisco l'indice
         index--;
-        console.log(index);
         // ° riassegno l'immagine del carousel sulla base della posizione indice;
         carouselImgEl.src = imgSrcs.at(index);
     }
