@@ -61,6 +61,7 @@ const imgSrcs = ['img/01.webp', 'img/02.webp', 'img/03.webp', 'img/04.webp', 'im
 let index = 0;
 
 // - inserire l'ìmmagine di partenza nel carousel
+// parto da quella centrale per styling
 carouselImgEl.src = imgSrcs[2];
 
 for(let i=0; i<imgSrcs.length; i++){
@@ -78,7 +79,7 @@ for(let i=0; i<imgSrcs.length; i++){
 }
 
 // Azzero la variabile indice
-
+// parto da quella centrale per styling
 index = 2;
 
 // - AL CLICK della freccia in basso 
