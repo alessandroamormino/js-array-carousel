@@ -26,9 +26,22 @@ x creo una variabile indice a 0
 x inserire l'ìmmagine di partenza nel carousel
 x creo n div quante sono le immagini (5) nell'array
 x creo n img tag quante sono le immagini (5) nell'array
-- inserire le immagini nella thumbnail sulla base delle src dell'array
+x inserire le immagini nella thumbnail sulla base delle src dell'array
+x AL CLICK della freccia in basso 
+    ? SE l'indice raggiunge l'ultima immagine disponibile nell'array
+        ° V1: riparto da 0 ;
+        ° V2: riassegno prima immagine;
+    : ALTRIMNETI
+        ° F1: aumento lìindice;
+        ° F2: riassegno l'immagine del carousel sulla base della posizione indice;
 - AL CLICK della freccia in alto 
-    ° diminuisco l'indice e riassegno l'immagine del carousel sulla base della posizione indice;
+    ? SE l'indice raggiunge l'ultima immagine disponibile nell'array
+        ° V1: riparto da 0 ;
+        ° V2: riassegno prima immagine;
+    : ALTRIMNETI
+        ° F1: diminuisco lìindice;
+        ° F2: riassegno l'immagine del carousel sulla base della posizione indice;
+    
 
 
 */
@@ -59,7 +72,50 @@ for(let i=0; i<imgSrcs.length; i++){
     // - creo n img tag quante sono le immagini (5) nell'array
     const newImgThumbEl = document.createElement('img');
     newThumbnailEl.append(newImgThumbEl);
+
+    // - inserire le immagini nella thumbnail sulla base delle src dell'array
     newImgThumbEl.src = imgSrcs[index++];
 }
 
+// Azzero la variabile indice
 
+index = 0;
+
+// - AL CLICK della freccia in basso 
+arrowBottomEl.addEventListener('click', function(){
+
+    // ? SE l'indice raggiunge l'ultima immagine disponibile nell'array
+    if(index>=imgSrcs.length-1){
+        // °V1: riparto da 0 
+        index = 0;
+        // ° V2: riassegno prima immagine;
+        carouselImgEl.src = imgSrcs[index];
+        console.log(index);
+    } else {
+        // °F1: aumento l'indice
+        index++;
+        console.log(index);
+        // ° riassegno l'immagine del carousel sulla base della posizione indice;
+        carouselImgEl.src = imgSrcs.at(index);
+    }
+});
+
+// - AL CLICK della freccia in alto 
+arrowTopEl.addEventListener('click', function(){
+
+    // ? SE l'indice raggiunge l'ultima immagine disponibile nell'array
+
+    if(index<=(imgSrcs.length-1)*-1){
+        // °V1: riparto da 0 
+        index = 0;
+        // ° V2: riassegno prima immagine;
+        carouselImgEl.src = imgSrcs[index];
+        console.log(index);
+    } else {
+        // °F1: diminuisco l'indice
+        index--;
+        console.log(index);
+        // ° riassegno l'immagine del carousel sulla base della posizione indice;
+        carouselImgEl.src = imgSrcs.at(index);
+    }
+});
